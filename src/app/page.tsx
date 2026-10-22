@@ -1,12 +1,27 @@
-import Image from 'next/image';
+//Components
+
+import { Header } from '@/components/layout/header';
+import { Footer } from '@/components/layout/footer';
+import { Hero } from '@/components/sections/hero';
+import { TechStack } from '@/components/sections/tech-stack';
+import { ProjectsSection } from '@/components/sections/projects-section';
+import { ExperienceSection } from '@/components/sections/experience-section';
+import { AboutSection } from '@/components/sections/about-section';
+import { ContactSection } from '@/components/sections/contact-section';
 
 export default function Home() {
     return (
-        <div>
+        <>
+            <Header />
             <main>
-                <h1 className="hero-title">Teste</h1>
-                <p>teste</p>
+                <Hero />
+                <TechStack />
+                <ProjectsSection />
+                <ExperienceSection />
+                <AboutSection />
+                <ContactSection />
             </main>
-        </div>
+            <Footer />
+        </>
     );
 }
