@@ -9,14 +9,14 @@ export function Header() {
     return (
         <header className="w-full border-b border-border">
             <nav
-                className="flex min-h-20 w-full items-center justify-between gap-6 px-8 max-md:px-5"
+                className="container-site flex min-h-20 items-center justify-between gap-6"
                 aria-label="Navegação principal"
             >
                 <a
                     href="#inicio"
-                    className="shrink-0 font-display text-xl font-bold tracking-tight text-accent"
+                    className="shrink-0 font-display text-xl font-bold tracking-tight"
                 >
-                    Wesley.dev
+                    wesley<span className="text-accent">.dev</span>
                 </a>
 
                 <div className="flex items-center gap-5">

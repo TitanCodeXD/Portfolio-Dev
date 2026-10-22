@@ -29,7 +29,7 @@
     --radius-block: 24px;
 
     /* Container */
-    --container-max: 1200px;
+    --container-max: 1300px;
     --container-gutter: 32px;
 
     /* Seções */
@@ -137,6 +137,28 @@ h6 {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
+}
+
+/* SectionHeading: rótulo mono + título */
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--accent);
+}
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+    margin-bottom: 48px;
+}
+.section-title {
+    font-size: clamp(1.875rem, 4vw, 2.75rem);
+    line-height: 1.15;
+    margin-top: 8px;
+} /* 30px → 44px */
+.section-head p {
+    max-width: 340px;
 }
 
 @media (max-width: 767px) {
