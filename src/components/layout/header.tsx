@@ -7,7 +7,7 @@ const navigation = [
 
 export function Header() {
     return (
-        <header className="w-full border-b border-border">
+        <header className="fixed inset-x-0 top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
             <nav
                 className="container-site flex min-h-20 items-center justify-between gap-6"
                 aria-label="Navegação principal"
