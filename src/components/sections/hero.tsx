@@ -9,7 +9,7 @@ export const Hero = () => {
         >
             <div className="container-site grid w-full grid-cols-[1.2fr_1fr] items-center gap-12 max-lg:gap-8 max-md:grid-cols-1 max-md:gap-8">
                 {/* Apresentação */}
-                <div className="flex flex-col items-start">
+                <div className="order-2 flex flex-col items-start md:order-1">
                     <p className="text-label font-mono! text-accent">// Olá, eu sou</p>
 
                     <h1
@@ -77,27 +77,18 @@ export const Hero = () => {
                         </a>
                     </div>
                 </div>
-                {/* Retrato */}
 
                 {/* Retrato */}
-                <div className="flex justify-center md:justify-end">
-                    <div
-                        className="w-full max-w-[500px] -translate-y-14 max-md:max-w-[490px]"
-                        style={{
-                            maskImage:
-                                'linear-gradient(to bottom, black 0%, black 72%, transparent 100%)',
-                            WebkitMaskImage:
-                                'linear-gradient(to bottom, black 0%, black 72%, transparent 100%)',
-                        }}
-                    >
+                <div className="order-1 flex justify-center md:order-2 md:justify-end">
+                    <div className="hero-portrait-mask relative aspect-square w-[180px] overflow-hidden rounded-full border border-border-strong md:aspect-auto md:w-full md:max-w-[530px] md:overflow-visible md:rounded-none md:border-0 md:translate-y-[-15%]">
                         <Image
                             src="/images/Busto para esquerda transparente modelo 2.png"
                             alt="Retrato em estilo cartoon monocromático de Wesley Santos"
                             width={723}
                             height={1084}
                             priority
-                            sizes="(max-width: 768px) 320px, 520px"
-                            className="h-auto w-full object-contain"
+                            sizes="(max-width: 767px) 180px, 580px"
+                            className="h-full w-full object-cover object-top md:h-auto md:object-contain"
                         />
                     </div>
                 </div>
