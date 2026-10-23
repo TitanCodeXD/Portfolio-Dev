@@ -5,7 +5,7 @@ const experiences = [
         company: 'Storrer Co. Assesoria Empresarial',
         type: 'CLT · Presencial',
         description:
-            'Desenvolvimento de aplicações web utilizando tecnologias modernas, com foco em soluções full stack e integração entre frontend e backend.',
+            'Desenvolvimento de aplicações web Full Stack voltadas a soluções de Governança, Riscos e Compliance (GRC), integrando frontend, backend e bancos de dados. Utilização de ferramentas de inteligência artificial, como Claude Code e MCP, para apoiar o desenvolvimento de sistemas, a exploração de soluções técnicas e a otimização de tarefas. Atuação em um contexto que conecta engenharia de software, gerenciamento de riscos, controles internos e processos de auditoria.',
         technologies: [
             'React',
             'Next.js',
@@ -13,7 +13,11 @@ const experiences = [
             'Tailwind',
             'Supabase',
             'Vercel',
-            'Claude Code',
+            'Sistema GRC',
+            'Auditorias Internas',
+            'Gerenciamento de Riscos',
+            'Controle de Riscos',
+            'Claude Code & MCP (Model Context Protocol)',
         ],
     },
     {
@@ -22,7 +26,7 @@ const experiences = [
         company: 'Trombini Embalagens S.A.',
         type: 'CLT · Presencial',
         description:
-            '- Contrato vinculado à instituição de ensino SENAI; Colaborei na manutenção preventiva e corretiva de máquinas industriais, contribuindo para a redução do tempo de inatividade; Auxiliei nos processos de programação CNC, realizando ajustes e contribuindo para melhoria da eficiência dos códigos.',
+            'Contrato de aprendizagem vinculado ao SENAI, com atividades relacionadas à manutenção preventiva e corretiva de máquinas industriais. Também tive contato com processos de programação CNC, realizando ajustes e contribuindo para melhorias nos códigos, além de desenvolver conhecimentos em processos de usinagem e organização do ambiente de trabalho por meio da metodologia 5S.',
         technologies: ['Programação CNC', 'Processos de Usinagem', 'Metodologia 5S'],
     },
 ];

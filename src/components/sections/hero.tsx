@@ -22,14 +22,18 @@ export const Hero = () => {
                     </h1>
 
                     <h2 className="hero-subtitle mt-5 max-w-2xl text-text-secondary">
-                        Desenvolvedor Full Stack construindo aplicações web modernas e funcionais.
+                        Desenvolvedor Full Stack explorando segurança, riscos e governança em
+                        tecnologia.
                     </h2>
 
                     <p className="text-body mt-5 max-w-xl text-muted">
                         Sou formado em Engenharia da Computação e gosto de transformar ideias em
-                        soluções práticas, do backend à interface. Atualmente, trabalho com
-                        tecnologias como Next.js, TypeScript e Supabase, enquanto continuo
-                        aprofundando meus conhecimentos em desenvolvimento de software.
+                        soluções práticas, do backend à interface. Atualmente, trabalho com Next.js,
+                        TypeScript, Supabase, Amazon AWS e mais enquanto amplio meus conhecimentos
+                        em inteligência artificial, cibersegurança, auditoria, riscos e Governança,
+                        Riscos e Compliance (GRC). Meu objetivo é compreender a tecnologia de ponta
+                        a ponta, não apenas como sistemas são construídos, mas também como
+                        funcionam, são protegidos, avaliados e governados.
                     </p>
 
                     {/* Ações principais */}
