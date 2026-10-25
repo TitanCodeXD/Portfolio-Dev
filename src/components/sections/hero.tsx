@@ -22,8 +22,8 @@ export const Hero = () => {
                     </h1>
 
                     <h2 className="hero-subtitle mt-5 max-w-2xl text-text-secondary">
-                        Desenvolvedor Full Stack explorando segurança, riscos e governança em
-                        tecnologia.
+                        Desenvolvedor Full Stack que enxerga além do código: segurança, riscos e
+                        governança em tecnologia.
                     </h2>
 
                     <p className="text-body mt-5 max-w-xl text-muted">
