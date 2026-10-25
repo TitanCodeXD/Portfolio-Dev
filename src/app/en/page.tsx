@@ -10,11 +10,11 @@ import { ContactSection } from '@/components/sections/contact-section';
 export default function EnglishHome() {
     return (
         <>
-            <Header />
+            <Header language="en" />
             <main className="pt-20">
                 <Hero language="en" />
-                <TechStack />
-                <ProjectsSection />
+                <TechStack language="en" />
+                <ProjectsSection language="en" />
                 <ExperienceSection />
                 <AboutSection />
                 <ContactSection />

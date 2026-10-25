@@ -12,11 +12,11 @@ import { ContactSection } from '@/components/sections/contact-section';
 export default function Home() {
     return (
         <>
-            <Header />
+            <Header language="pt" />
             <main className="pt-20">
                 <Hero language="pt" />
-                <TechStack />
-                <ProjectsSection />
+                <TechStack language="pt" />
+                <ProjectsSection language="pt" />
                 <ExperienceSection />
                 <AboutSection />
                 <ContactSection />

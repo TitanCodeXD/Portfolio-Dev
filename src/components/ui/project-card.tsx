@@ -1,12 +1,21 @@
 import type { Project } from '@/data/projects';
 
+//Translations manualmente com i18n, ioteu por não utilizar nenhuma lib
+import { translations, type Language } from '@/i18n/translations';
+
 type ProjectCardProps = {
     project: Project;
     index: number;
+    language: Language;
 };
 
-export default function ProjectCard({ project, index }: ProjectCardProps) {
+export default function ProjectCard({ project, index, language }: ProjectCardProps) {
     const number = String(index + 1).padStart(2, '0');
+    const t = translations[language];
+
+    const category = project.category[language];
+    const description = project.description[language];
+    const title = project.title;
 
     return (
         <article className="group overflow-hidden rounded-card border border-border bg-surface transition-colors duration-200 hover:border-border-strong">
@@ -22,10 +31,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 </div>
 
                 <div className="relative">
-                    <p className="font-mono text-xs text-muted">{project.category}</p>
+                    <p className="font-mono text-xs text-muted">{category}</p>
 
                     <p className="mt-2 font-display text-3xl font-bold tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-4xl">
-                        {project.title}
+                        {title}
                         <span className="text-accent">.</span>
                     </p>
                 </div>
@@ -38,19 +47,21 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             <div className="flex h-full flex-col p-5 sm:p-6">
                 <div>
                     <p className="font-mono text-[11px] uppercase tracking-wider text-accent">
-                        {project.category}
+                        {category}
                     </p>
 
-                    <h3 className="mt-2 font-display text-xl font-bold text-foreground">
-                        {project.title}
-                    </h3>
+                    <h3 className="mt-2 font-display text-xl font-bold text-foreground">{title}</h3>
 
-                    <p className="text-body mt-3 text-muted">{project.description}</p>
+                    <p className="text-body mt-3 text-muted">{description}</p>
                 </div>
 
                 {/* Tecnologias */}
                 <ul
-                    aria-label={`Tecnologias de ${project.title}`}
+                    aria-label={
+                        language === 'pt'
+                            ? `Tecnologias de ${title}`
+                            : `Technologies used in ${title}`
+                    }
                     className="mt-5 flex flex-wrap gap-2"
                 >
                     {project.technologies.map((technology) => (
@@ -71,7 +82,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
                     >
-                        Código <span aria-hidden="true">↗</span>
+                        {t.projects.viewCode} <span aria-hidden="true">↗</span>
                     </a>
 
                     {project.demoUrl && (
@@ -81,7 +92,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-foreground"
                         >
-                            Ver projeto <span aria-hidden="true">↗</span>
+                            {t.projects.viewProject} <span aria-hidden="true">↗</span>
                         </a>
                     )}
                 </div>

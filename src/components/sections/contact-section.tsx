@@ -22,8 +22,15 @@ export const ContactSection = () => {
 
                 <div className="mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
                     <a
-                        href="mailto:wesleysantos.dev@gmail.com"
+                        href="https://drive.google.com/file/d/18-_0123-abVLOlczYzshN0DhWkR85YaP/view?pli=1"
                         className="inline-flex min-h-12 items-center justify-center rounded-[10px] bg-accent px-6 py-3 font-medium text-[#06120C] transition-colors duration-200 hover:bg-[#9AEBCB] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                    >
+                        Visualizar Currículo ↗
+                    </a>
+
+                    <a
+                        href="mailto:wesleysantos.dev@gmail.com"
+                        className="inline-flex min-h-12 items-center justify-center rounded-[10px] border border-[#3A434F] bg-black px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-[#171C22] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                     >
                         E-mail ↗
                     </a>

@@ -3,15 +3,19 @@
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-const navigation = [
-    { label: 'Início', href: '#inicio' },
-    { label: 'Projetos', href: '#projetos' },
-    { label: 'Experiência', href: '#experiencia' },
-    { label: 'Sobre', href: '#sobre' },
-    { label: 'Contato', href: '#contato' },
-];
+//Translations manualmente com i18n, ioteu por não utilizar nenhuma lib
+import { translations, type Language } from '@/i18n/translations';
 
-export function Header() {
+const navigation = [
+    { label: 'home', href: '#inicio' },
+    { label: 'projects', href: '#projetos' },
+    { label: 'experience', href: '#experiencia' },
+    { label: 'about', href: '#sobre' },
+    { label: 'contact', href: '#contato' },
+] as const;
+
+export const Header = ({ language }: { language: Language }) => {
+    const t = translations[language];
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const pathname = usePathname();
@@ -76,7 +80,7 @@ export function Header() {
                                 href={item.href}
                                 className="whitespace-nowrap text-sm text-muted transition-colors hover:text-foreground"
                             >
-                                {item.label}
+                                {t.navigation[item.label]}
                             </a>
                         ))}
 
@@ -85,7 +89,7 @@ export function Header() {
                         download
                         className="whitespace-nowrap rounded-button border border-border-strong px-3 py-2 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
                     >
-                        Currículo (PDF) ↓
+                        {t.navigation.resume} ↓
                     </a>
 
                     {languageSelector}
@@ -141,7 +145,9 @@ export function Header() {
                         }}
                     >
                         <div className="flex flex-col">
-                            <p className="mb-3 px-3 font-mono text-xs text-accent">NAVEGAÇÃO</p>
+                            <p className="mb-3 px-3 font-mono text-xs text-accent">
+                                {t.navigation.navigation}
+                            </p>
 
                             {navigation.map((item) => (
                                 <a
@@ -150,7 +156,7 @@ export function Header() {
                                     onClick={() => setIsMenuOpen(false)}
                                     className="rounded-lg px-3 py-3 text-sm text-secondary transition-colors hover:bg-[#171C22] hover:text-foreground focus-visible:outline-2 focus-visible:outline-accent"
                                 >
-                                    {item.label}
+                                    {t.navigation[item.label]}
                                 </a>
                             ))}
 
@@ -184,4 +190,4 @@ export function Header() {
             </nav>
         </header>
     );
-}
+};

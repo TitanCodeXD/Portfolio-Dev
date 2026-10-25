@@ -1,7 +1,10 @@
 import { projects } from '@/data/projects';
 import ProjectCard from '@/components/ui/project-card';
+//Translations manualmente com i18n, ioteu por não utilizar nenhuma lib
+import { translations, type Language } from '@/i18n/translations';
 
-export const ProjectsSection = () => {
+export const ProjectsSection = ({ language }: { language: Language }) => {
+    const t = translations[language];
     return (
         <section
             id="projetos"
@@ -11,25 +14,27 @@ export const ProjectsSection = () => {
             <div className="container-site">
                 {/* Cabeçalho da seção */}
                 <div className="max-w-2xl">
-                    <p className="text-label font-mono! text-accent">01 / PROJETOS</p>
+                    <p className="text-label font-mono! text-accent">{t.projects.label}</p>
 
                     <h2
                         id="projects-title"
                         className="section-title mt-4 font-display font-bold tracking-tight text-foreground"
                     >
-                        Projetos em destaque<span className="text-accent">.</span>
+                        {t.projects.title}
                     </h2>
 
-                    <p className="text-body mt-4 text-muted">
-                        Alguns projetos em que coloquei meus conhecimentos em prática, explorando
-                        diferentes tecnologias e construindo soluções funcionais.
-                    </p>
+                    <p className="text-body mt-4 text-muted">{t.projects.description}</p>
                 </div>
 
                 {/* Grade de projetos */}
                 <div className="mt-10 grid grid-cols-1 items-stretch gap-5 lg:grid-cols-2">
                     {projects.map((project, index) => (
-                        <ProjectCard key={project.slug} project={project} index={index} />
+                        <ProjectCard
+                            key={project.slug}
+                            project={project}
+                            index={index}
+                            language={language}
+                        />
                     ))}
                 </div>
 
@@ -41,7 +46,7 @@ export const ProjectsSection = () => {
                         rel="noopener noreferrer"
                         className="inline-flex min-h-11 items-center justify-center gap-2 rounded-button border border-border-strong px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
                     >
-                        Ver mais no GitHub
+                        {t.projects.viewMore}
                         <span aria-hidden="true">↗</span>
                     </a>
                 </div>
