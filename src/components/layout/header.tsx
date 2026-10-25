@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const navigation = [
     { label: 'Início', href: '#inicio' },
@@ -12,6 +13,44 @@ const navigation = [
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const pathname = usePathname();
+    const isEnglish = pathname === '/en';
+
+    const languageSelector = (
+        <div
+            className="inline-flex items-center rounded-lg border border-border-strong bg-surface p-1"
+            aria-label="Selecionar idioma"
+        >
+            <button
+                type="button"
+                aria-label="Mudar idioma para português"
+                aria-current={!isEnglish ? 'page' : undefined}
+                onClick={() => {
+                    if (isEnglish) window.location.href = '/';
+                }}
+                className={`rounded-md px-2.5 py-1.5 font-mono text-xs font-semibold transition-all duration-200 ${
+                    !isEnglish ? 'bg-accent text-[#06120C]' : 'text-muted hover:text-foreground'
+                }`}
+            >
+                PT
+            </button>
+
+            <button
+                type="button"
+                aria-label="Switch language to English"
+                aria-current={isEnglish ? 'page' : undefined}
+                onClick={() => {
+                    if (!isEnglish) window.location.href = '/en';
+                }}
+                className={`rounded-md px-2.5 py-1.5 font-mono text-xs font-semibold transition-all duration-200 ${
+                    isEnglish ? 'bg-accent text-[#06120C]' : 'text-muted hover:text-foreground'
+                }`}
+            >
+                EN
+            </button>
+        </div>
+    );
 
     return (
         <header className="fixed inset-x-0 top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
@@ -49,28 +88,12 @@ export function Header() {
                         Currículo (PDF) ↓
                     </a>
 
-                    <button
-                        type="button"
-                        aria-label="Idioma atual: português"
-                        title="A versão em inglês será implementada posteriormente"
-                        disabled
-                        className="whitespace-nowrap font-mono text-xs text-muted opacity-70"
-                    >
-                        PT / EN
-                    </button>
+                    {languageSelector}
                 </div>
 
                 {/* Controles mobile */}
                 <div className="flex items-center gap-4 md:hidden">
-                    <button
-                        type="button"
-                        aria-label="Idioma atual: português"
-                        title="A versão em inglês será implementada posteriormente"
-                        disabled
-                        className="font-mono text-xs text-muted opacity-70"
-                    >
-                        PT / EN
-                    </button>
+                    {languageSelector}
 
                     <button
                         type="button"
