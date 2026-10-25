@@ -8,6 +8,7 @@ export type Project = {
     technologies: string[];
     repositoryUrl: string;
     demoUrl?: string;
+    image: string;
 };
 
 export const projects: Project[] = [
@@ -25,6 +26,7 @@ export const projects: Project[] = [
         technologies: ['React', 'Express', 'MongoDB', 'Mongoose', 'Redux', 'AWS S3'],
         repositoryUrl: 'https://github.com/TitanCodeXD/Parallel',
         demoUrl: 'https://parallel-two.vercel.app/',
+        image: '/images/Parallel Thumb.jpg',
     },
     {
         slug: 'mini-blog',
@@ -40,6 +42,7 @@ export const projects: Project[] = [
         technologies: ['React', 'Vite', 'Firebase'],
         repositoryUrl: 'https://github.com/TitanCodeXD/Mini-Blog',
         demoUrl: 'https://mini-blog-web.netlify.app/',
+        image: '/images/Mini Blog Thumbnail.jpg',
     },
     {
         slug: 'nestjs-mongodb-api',
@@ -63,6 +66,7 @@ export const projects: Project[] = [
             'Mongoose',
         ],
         repositoryUrl: 'https://github.com/TitanCodeXD/nestjs-mongodb-api',
+        image: '/images/NestJS Project Thumb.png',
     },
     {
         slug: 'chatbot-gemini',
@@ -78,5 +82,6 @@ export const projects: Project[] = [
         technologies: ['Python', 'Streamlit', 'Gemini API', 'PyPDF2', 'Pillow'],
         repositoryUrl: 'https://github.com/TitanCodeXD/Chat-Bot',
         demoUrl: 'https://chat-bot-python-gemini.streamlit.app/',
+        image: '/images/Chat Bot Gemini Thumb.jpg',
     },
 ];

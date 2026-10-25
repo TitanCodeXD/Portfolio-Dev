@@ -92,7 +92,7 @@ export const translations = {
             label: '04 / CONTATO',
             title: 'Vamos construir algo juntos?',
             description:
-                'Estou aberto a oportunidades, conexões profissionais e conversas sobre tecnologia. Se quiser trocar uma ideia ou conhecer meu trabalho, entre em contato.',
+                'Estou aberto a conexões profissionais, troca de experiências e conversas sobre tecnologia e desenvolvimento. Se quiser conhecer meu trabalho ou trocar uma ideia, entre em contato.',
             resumeButtonPT: 'Ver CV em Português',
             resumeButtonEN: 'Ver CV em Inglês)',
             emailButton: 'E-mail',
@@ -196,7 +196,7 @@ export const translations = {
             label: '04 / CONTACT',
             title: "Let's build something together?",
             description:
-                "I'm open to opportunities, professional connections, and conversations about technology. Feel free to reach out or explore my work.",
+                "I'm open to professional connections, exchanging ideas, and conversations about technology and software development. If you'd like to explore my work or have a chat, feel free to reach out.",
             resumeButtonPT: 'View CV in Portuguese)',
             resumeButtonEN: 'View CV in English',
             emailButton: 'Email',

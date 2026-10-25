@@ -80,22 +80,44 @@ export const Header = ({ language }: { language: Language }) => {
         </div>
     );
 
+    const DownloadIcon = () => (
+        <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="size-4 shrink-0"
+        >
+            <path d="M12 3v12" />
+            <path d="m7 10 5 5 5-5" />
+            <path d="M5 17v3h14v-3" />
+        </svg>
+    );
+
     const resumeButtons = (
         <>
             <a
                 href={resumeLinks.pt}
-                className="inline-flex min-h-10 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-button border border-border-strong px-2.5 py-2 text-xs font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                download
+                aria-label="Baixar currículo em português"
+                className="inline-flex min-h-10 w-28 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-button border border-border-strong px-3 py-2 text-xs font-medium text-foreground transition-colors hover:border-accent hover:bg-accent/5 hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
             >
-                CV (PT) <span aria-hidden="true">↓</span>
+                <DownloadIcon />
+                <span>CV (PT)</span>
             </a>
 
             <a
                 href={resumeLinks.en}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-10 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-button border border-border-strong px-2.5 py-2 text-xs font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                aria-label="Abrir currículo em inglês"
+                className="inline-flex min-h-10 w-28 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-button border border-border-strong px-3 py-2 text-xs font-medium text-foreground transition-colors hover:border-accent hover:bg-accent/5 hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
             >
-                Resume (EN) <span aria-hidden="true">↗</span>
+                <DownloadIcon />
+                <span>CV (EN)</span>
             </a>
         </>
     );
@@ -207,11 +229,13 @@ export const Header = ({ language }: { language: Language }) => {
                             <div className="flex flex-col gap-2">
                                 <a
                                     href={resumeLinks.pt}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="flex min-h-12 items-center justify-center gap-2 rounded-button border border-border-strong px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                                    className="flex min-h-12 items-center justify-center gap-2 rounded-button border border-border-strong px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:bg-accent/5 hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                                 >
-                                    CV em Português (PDF)
-                                    <span aria-hidden="true">↓</span>
+                                    <DownloadIcon />
+                                    <span>CV em Português (PDF)</span>
                                 </a>
 
                                 <a
@@ -219,10 +243,10 @@ export const Header = ({ language }: { language: Language }) => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="flex min-h-12 items-center justify-center gap-2 rounded-button bg-accent px-4 py-3 text-sm font-medium text-[#06120C] transition-colors hover:bg-[#9AEBCB] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                                    className="flex min-h-12 items-center justify-center gap-2 rounded-button border border-border-strong px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:bg-accent/5 hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                                 >
-                                    Resume in English
-                                    <span aria-hidden="true">↗</span>
+                                    <DownloadIcon />
+                                    <span>Resume in English (PDF)</span>
                                 </a>
                             </div>
                         </div>
