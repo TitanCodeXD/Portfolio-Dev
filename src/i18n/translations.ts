@@ -93,7 +93,8 @@ export const translations = {
             title: 'Vamos construir algo juntos?',
             description:
                 'Estou aberto a oportunidades, conexões profissionais e conversas sobre tecnologia. Se quiser trocar uma ideia ou conhecer meu trabalho, entre em contato.',
-            resumeButton: 'Visualizar currículo',
+            resumeButtonPT: 'Ver CV em Português',
+            resumeButtonEN: 'Ver CV em Inglês)',
             emailButton: 'E-mail',
             githubButton: 'GitHub',
             linkedinButton: 'LinkedIn',
@@ -196,7 +197,8 @@ export const translations = {
             title: "Let's build something together?",
             description:
                 "I'm open to opportunities, professional connections, and conversations about technology. Feel free to reach out or explore my work.",
-            resumeButton: 'View Resume',
+            resumeButtonPT: 'View CV in Portuguese)',
+            resumeButtonEN: 'View CV in English',
             emailButton: 'Email',
             githubButton: 'GitHub',
             linkedinButton: 'LinkedIn',

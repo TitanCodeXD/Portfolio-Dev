@@ -166,6 +166,26 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Transição ao trocar o idioma */
+body main {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+}
+
+body.language-transition main {
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body main {
+        transition: none;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;

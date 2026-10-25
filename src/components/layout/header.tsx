@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
-//Translations manualmente com i18n, ioteu por não utilizar nenhuma lib
+// Traduções manuais, sem biblioteca externa
 import { translations, type Language } from '@/i18n/translations';
 
 const navigation = [
@@ -14,12 +14,40 @@ const navigation = [
     { label: 'contact', href: '#contato' },
 ] as const;
 
+const resumeLinks = {
+    pt: 'https://drive.google.com/uc?export=download&id=18-_0123-abVLOlczYzshN0DhWkR85YaP',
+    en: 'https://drive.google.com/uc?export=download&id=1Qr0mLYaVC-7MbCYhY1pswf9OBIZa9rtN',
+};
+
 export const Header = ({ language }: { language: Language }) => {
     const t = translations[language];
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const pathname = usePathname();
     const isEnglish = pathname === '/en';
+
+    const router = useRouter();
+
+    const changeLanguage = (nextLanguage: Language) => {
+        const nextPath = nextLanguage === 'en' ? '/en' : '/';
+
+        if (pathname === nextPath) return;
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            router.push(nextPath);
+            return;
+        }
+
+        document.body.classList.add('language-transition');
+
+        window.setTimeout(() => {
+            router.push(nextPath);
+
+            window.setTimeout(() => {
+                document.body.classList.remove('language-transition');
+            }, 200);
+        }, 180);
+    };
 
     const languageSelector = (
         <div
@@ -30,9 +58,7 @@ export const Header = ({ language }: { language: Language }) => {
                 type="button"
                 aria-label="Mudar idioma para português"
                 aria-current={!isEnglish ? 'page' : undefined}
-                onClick={() => {
-                    if (isEnglish) window.location.href = '/';
-                }}
+                onClick={() => changeLanguage('pt')}
                 className={`rounded-md px-2.5 py-1.5 font-mono text-xs font-semibold transition-all duration-200 ${
                     !isEnglish ? 'bg-accent text-[#06120C]' : 'text-muted hover:text-foreground'
                 }`}
@@ -44,9 +70,7 @@ export const Header = ({ language }: { language: Language }) => {
                 type="button"
                 aria-label="Switch language to English"
                 aria-current={isEnglish ? 'page' : undefined}
-                onClick={() => {
-                    if (!isEnglish) window.location.href = '/en';
-                }}
+                onClick={() => changeLanguage('en')}
                 className={`rounded-md px-2.5 py-1.5 font-mono text-xs font-semibold transition-all duration-200 ${
                     isEnglish ? 'bg-accent text-[#06120C]' : 'text-muted hover:text-foreground'
                 }`}
@@ -54,6 +78,26 @@ export const Header = ({ language }: { language: Language }) => {
                 EN
             </button>
         </div>
+    );
+
+    const resumeButtons = (
+        <>
+            <a
+                href={resumeLinks.pt}
+                className="inline-flex min-h-10 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-button border border-border-strong px-2.5 py-2 text-xs font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            >
+                CV (PT) <span aria-hidden="true">↓</span>
+            </a>
+
+            <a
+                href={resumeLinks.en}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-10 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-button border border-border-strong px-2.5 py-2 text-xs font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            >
+                Resume (EN) <span aria-hidden="true">↗</span>
+            </a>
+        </>
     );
 
     return (
@@ -71,7 +115,7 @@ export const Header = ({ language }: { language: Language }) => {
                 </a>
 
                 {/* Navegação desktop */}
-                <div className="hidden items-center gap-5 md:flex">
+                <div className="hidden items-center gap-4 md:flex">
                     {navigation
                         .filter((item) => item.href !== '#inicio')
                         .map((item) => (
@@ -84,13 +128,7 @@ export const Header = ({ language }: { language: Language }) => {
                             </a>
                         ))}
 
-                    <a
-                        href="/curriculo.pdf"
-                        download
-                        className="whitespace-nowrap rounded-button border border-border-strong px-3 py-2 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
-                    >
-                        {t.navigation.resume} ↓
-                    </a>
+                    {resumeButtons}
 
                     {languageSelector}
                 </div>
@@ -162,28 +200,31 @@ export const Header = ({ language }: { language: Language }) => {
 
                             <div className="my-3 border-t border-border" />
 
-                            <a
-                                href="/curriculo.pdf"
-                                download
-                                onClick={() => setIsMenuOpen(false)}
-                                className="flex min-h-12 items-center justify-center gap-2 rounded-button bg-accent px-4 py-3 text-sm font-medium text-[#06120C] transition-colors hover:bg-[#9AEBCB] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                            >
-                                Currículo (PDF)
-                                <svg
-                                    aria-hidden="true"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="1.8"
-                                    className="size-4"
+                            <p className="mb-3 px-3 font-mono text-xs text-accent">
+                                {isEnglish ? 'RESUMES' : 'CURRÍCULOS'}
+                            </p>
+
+                            <div className="flex flex-col gap-2">
+                                <a
+                                    href={resumeLinks.pt}
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className="flex min-h-12 items-center justify-center gap-2 rounded-button border border-border-strong px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                                 >
-                                    <path
-                                        d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                            </a>
+                                    CV em Português (PDF)
+                                    <span aria-hidden="true">↓</span>
+                                </a>
+
+                                <a
+                                    href={resumeLinks.en}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className="flex min-h-12 items-center justify-center gap-2 rounded-button bg-accent px-4 py-3 text-sm font-medium text-[#06120C] transition-colors hover:bg-[#9AEBCB] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                                >
+                                    Resume in English
+                                    <span aria-hidden="true">↗</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 )}
