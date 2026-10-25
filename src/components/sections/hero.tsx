@@ -1,6 +1,9 @@
 import Image from 'next/image';
+//Translations manualmente com i18n, ioteu por não utilizar nenhuma lib
+import { translations, type Language } from '@/i18n/translations';
 
-export const Hero = () => {
+export const Hero = ({ language }: { language: Language }) => {
+    const t = translations[language];
     return (
         <section
             id="inicio"
@@ -10,7 +13,7 @@ export const Hero = () => {
             <div className="container-site grid w-full grid-cols-[1.2fr_1fr] items-center gap-12 max-lg:gap-8 max-md:grid-cols-1 max-md:gap-8">
                 {/* Apresentação */}
                 <div className="order-2 flex flex-col items-start md:order-1">
-                    <p className="text-label font-mono! text-accent">// Olá, eu sou</p>
+                    <p className="text-label font-mono! text-accent">{t.hero.greeting}</p>
 
                     <h1
                         id="hero-title"
@@ -22,19 +25,10 @@ export const Hero = () => {
                     </h1>
 
                     <h2 className="hero-subtitle mt-5 max-w-2xl text-text-secondary">
-                        Desenvolvedor Full Stack que enxerga além do código: segurança, riscos e
-                        governança em tecnologia.
+                        {t.hero.subtitle}
                     </h2>
 
-                    <p className="text-body mt-5 max-w-xl text-muted">
-                        Sou formado em Engenharia da Computação e gosto de transformar ideias em
-                        soluções práticas, do backend à interface. Atualmente, trabalho com Next.js,
-                        TypeScript, Supabase, Amazon AWS e mais enquanto amplio meus conhecimentos
-                        em inteligência artificial, cibersegurança, auditoria, riscos e Governança,
-                        Riscos e Compliance (GRC). Meu objetivo é compreender a tecnologia de ponta
-                        a ponta, não apenas como sistemas são construídos, mas também como
-                        funcionam, são protegidos, avaliados e governados.
-                    </p>
+                    <p className="text-body mt-5 max-w-xl text-muted">{t.hero.description}</p>
 
                     {/* Ações principais */}
                     <div className="mt-8 flex flex-wrap items-center gap-3 max-sm:w-full max-sm:flex-col max-sm:items-stretch">
@@ -42,14 +36,14 @@ export const Hero = () => {
                             href="#projetos"
                             className="inline-flex min-h-11 items-center justify-center gap-2 rounded-button bg-accent px-5 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-accent/90"
                         >
-                            Ver projetos <span aria-hidden="true">→</span>
+                            {t.hero.projectsButton} <span aria-hidden="true">→</span>
                         </a>
 
                         <a
                             href="#contato"
                             className="inline-flex min-h-11 items-center justify-center rounded-button border border-border-strong px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
                         >
-                            Entrar em contato
+                            {t.hero.contactButton}
                         </a>
                     </div>
 

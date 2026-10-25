@@ -14,7 +14,7 @@ export default function Home() {
         <>
             <Header />
             <main className="pt-20">
-                <Hero />
+                <Hero language="pt" />
                 <TechStack />
                 <ProjectsSection />
                 <ExperienceSection />
