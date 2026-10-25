@@ -1,39 +1,77 @@
+//Translations manualmente com i18n, ioteu por não utilizar nenhuma lib
+import { translations, type Language } from '@/i18n/translations';
+
 const skillGroups = [
     {
-        title: 'Linguagens',
+        title: {
+            pt: 'Linguagens',
+            en: 'Languages',
+        },
         skills: ['JavaScript', 'TypeScript', 'Python', 'C', 'R'],
     },
     {
-        title: 'Frontend',
+        title: {
+            pt: 'Frontend',
+            en: 'Frontend',
+        },
         skills: ['React', 'Next.js', 'Redux', 'HTML', 'CSS', 'Tailwind CSS'],
     },
     {
-        title: 'Backend & APIs',
+        title: {
+            pt: 'Backend & APIs',
+            en: 'Backend & APIs',
+        },
         skills: ['Node.js', 'NestJS', 'Express', 'REST APIs', 'JWT', 'Socket.IO'],
     },
     {
-        title: 'Bancos de dados & serviços',
+        title: {
+            pt: 'Bancos de dados & serviços',
+            en: 'Databases & Services',
+        },
         skills: ['PostgreSQL', 'MongoDB', 'SQLite', 'Redis', 'Supabase', 'Firebase'],
     },
     {
-        title: 'Cloud, DevOps & ferramentas',
+        title: {
+            pt: 'Cloud, DevOps & ferramentas',
+            en: 'Cloud, DevOps & Tools',
+        },
         skills: ['AWS S3', 'Docker', 'Git', 'GitHub Actions', 'Vercel', 'Bash', 'Claude Code'],
     },
     {
-        title: 'Testes & documentação',
+        title: {
+            pt: 'Testes & documentação',
+            en: 'Testing & Documentation',
+        },
         skills: ['Jest', 'Swagger', 'OpenAPI'],
     },
 ];
 
 const focusAreas = [
-    'Governança, Riscos e Compliance (GRC)',
-    'Gestão de riscos e controles internos',
-    'Auditoria e conformidade',
-    'LGPD e cibersegurança',
-    'Inteligência artificial aplicada ao desenvolvimento',
+    {
+        pt: 'Governança, Riscos e Compliance (GRC)',
+        en: 'Governance, Risk, and Compliance (GRC)',
+    },
+    {
+        pt: 'Gestão de riscos e controles internos',
+        en: 'Risk Management and Internal Controls',
+    },
+    {
+        pt: 'Auditoria e conformidade',
+        en: 'Auditing and Compliance',
+    },
+    {
+        pt: 'LGPD e cibersegurança',
+        en: 'LGPD and Cybersecurity',
+    },
+    {
+        pt: 'Inteligência artificial aplicada ao desenvolvimento',
+        en: 'Artificial Intelligence applied to Development',
+    },
 ];
 
-export const AboutSection = () => {
+export const AboutSection = ({ language }: { language: Language }) => {
+    const t = translations[language];
+
     return (
         <section id="sobre" aria-labelledby="about-title" className="section-spacing">
             <div className="container-site">
@@ -41,63 +79,23 @@ export const AboutSection = () => {
                     {/* Apresentação */}
                     <div className="flex flex-col gap-5 md:sticky md:top-28 md:self-start">
                         <div className="mb-12">
-                            <p className="text-label font-mono! mb-4 text-accent">03 / SOBRE MIM</p>
+                            <p className="text-label font-mono! mb-4 text-accent">
+                                {t.about.label}
+                            </p>
 
                             <h2 id="about-title" className="section-title">
-                                Um pouco além do código.
+                                {t.about.title}
                             </h2>
                         </div>
-                        <p className="text-body leading-7!">
-                            Sou formado em Engenharia da Computação e sempre fui movido pela
-                            curiosidade de entender como as coisas funcionam. Com o tempo, percebi
-                            que, para mim, ser Full Stack não se resume a transitar entre frontend e
-                            backend. É compreender uma aplicação inteira: da interface e da
-                            experiência do usuário ao banco de dados, à infraestrutura, à segurança
-                            e aos processos que sustentam tudo isso.
-                        </p>
+                        <p className="text-body leading-7!">{t.about.paragraphs[0]}</p>
 
-                        <p className="text-body leading-7!">
-                            Foi assim que cheguei a Governança, Riscos e Compliance (GRC).
-                            Trabalhando no desenvolvimento de uma plataforma da área, entendi que
-                            muitas decisões técnicas nascem de exigências que estão fora do código.
-                            Um controle de acesso bem definido, uma trilha de auditoria confiável ou
-                            o isolamento correto dos dados de cada cliente não são detalhes de
-                            implementação: são respostas a riscos, normas e leis. Por isso venho
-                            estudando gestão de riscos, controles internos, auditoria e
-                            conformidade, além de referências como SOX, normas ISO, LGPD e boas
-                            práticas de cibersegurança. Não vejo essas áreas como um caminho
-                            separado do desenvolvimento, e sim como o contexto que dá sentido a ele.
-                        </p>
+                        <p className="text-body leading-7!">{t.about.paragraphs[1]}</p>
 
-                        <p className="text-body leading-7!">
-                            Também tenho explorado novas formas de construir software com
-                            inteligência artificial. No dia a dia, uso o Claude Code como apoio na
-                            implementação, na análise e na resolução de problemas, e exploro o MCP
-                            (Model Context Protocol) para conectar modelos de IA a ferramentas e
-                            dados de trabalho. Meus próximos passos são RAG (Retrieval-Augmented
-                            Generation), LangChain e agentes de IA, com o mesmo princípio de sempre:
-                            entender como funcionam, e não apenas como usar.
-                        </p>
+                        <p className="text-body leading-7!">{t.about.paragraphs[2]}</p>
 
-                        <p className="text-body leading-7!">
-                            Gosto de aprender, experimentar e conectar conhecimentos de áreas
-                            diferentes. Quero continuar evoluindo como desenvolvedor e, ao mesmo
-                            tempo, como alguém capaz de lidar com normas, riscos, segurança e, acima
-                            de tudo, com pessoas. Porque, no fim, tecnologia é feita por pessoas e
-                            para pessoas.
-                        </p>
+                        <p className="text-body leading-7!">{t.about.paragraphs[3]}</p>
 
-                        <p className="text-body leading-7!">
-                            Minha trajetória começou com os primeiros projetos em HTML, CSS e
-                            JavaScript e foi ganhando profundidade a cada desafio. Com o tempo,
-                            passei a me interessar cada vez mais pelo que acontece por trás da tela:
-                            construí uma API com NestJS usando Redis, filas, testes com Jest,
-                            documentação com Swagger e Docker, e uma aplicação full stack com
-                            armazenamento de arquivos no Amazon S3. Foram esses projetos que me
-                            mostraram que as decisões mais interessantes raramente estão só na
-                            interface. Elas estão em como os dados circulam, como o sistema lida com
-                            tarefas pesadas e como ele continua confiável quando algo dá errado.
-                        </p>
+                        <p className="text-body leading-7!">{t.about.paragraphs[4]}</p>
 
                         <div className="mt-3 border-l-2 border-accent pl-5">
                             <p className="text-sm leading-relaxed text-text-secondary">
@@ -110,10 +108,12 @@ export const AboutSection = () => {
                     <div className="flex flex-col gap-4">
                         {/* Formação */}
                         <article className="surface-card rounded-xl border border-border p-5">
-                            <span className="text-label font-mono! text-accent">FORMAÇÃO</span>
+                            <span className="text-label font-mono! text-accent">
+                                {t.about.educationLabel}
+                            </span>
 
                             <h3 className="mt-3 text-lg font-semibold text-foreground">
-                                Engenharia da Computação
+                                {t.about.degree}
                             </h3>
 
                             <p className="mt-1 text-sm text-muted">UNIFATECPR · 2019–2024</p>
@@ -122,37 +122,35 @@ export const AboutSection = () => {
                         {/* Foco atual */}
                         <article className="surface-card rounded-xl border border-border p-5">
                             <span className="text-label font-mono! text-accent">
-                                FOCO PROFISSIONAL
+                                {t.about.professionalFocusLabel}
                             </span>
 
                             <h3 className="mt-3 text-lg font-semibold text-foreground">
-                                Desenvolvimento Full Stack
+                                {t.about.professionalFocusTitle}
                             </h3>
 
                             <p className="mt-2 text-sm leading-relaxed text-text-secondary">
-                                Desenvolvimento de aplicações web com Next.js, TypeScript e
-                                Supabase, explorando soluções que integram frontend, backend e
-                                bancos de dados.
+                                {t.about.professionalFocusDescription}
                             </p>
                         </article>
 
                         {/* Áreas de interesse */}
                         <article className="surface-card rounded-xl border border-border p-5">
                             <span className="text-label font-mono! text-accent">
-                                OUTRAS ÁREAS EM DESENVOLVIMENTO
+                                {t.about.otherAreasLabel}
                             </span>
 
                             <ul className="mt-4 flex flex-col gap-3">
                                 {focusAreas.map((area) => (
                                     <li
-                                        key={area}
+                                        key={area[language]}
                                         className="flex items-start gap-3 text-sm leading-relaxed text-text-secondary"
                                     >
                                         <span
                                             aria-hidden="true"
                                             className="mt-1.5 size-1.5 shrink-0 rounded-full bg-accent"
                                         />
-                                        {area}
+                                        {area[language]}
                                     </li>
                                 ))}
                             </ul>
@@ -161,14 +159,14 @@ export const AboutSection = () => {
                         {/* Competências técnicas */}
                         <article className="surface-card rounded-xl border border-border p-5">
                             <span className="text-label font-mono! text-accent">
-                                COMPETÊNCIAS TÉCNICAS
+                                {t.about.technicalSkillsLabel}
                             </span>
 
                             <div className="mt-5 flex flex-col gap-5">
                                 {skillGroups.map((group) => (
-                                    <div key={group.title}>
+                                    <div key={group.title[language]}>
                                         <h3 className="mb-2.5 text-sm font-medium text-foreground">
-                                            {group.title}
+                                            {group.title[language]}
                                         </h3>
 
                                         <ul className="flex flex-wrap gap-2">
@@ -188,19 +186,24 @@ export const AboutSection = () => {
 
                         {/* Idiomas */}
                         <article className="surface-card rounded-xl border border-border p-5">
-                            <span className="text-label font-mono! text-accent">IDIOMAS</span>
+                            <span className="text-label font-mono! text-accent">
+                                {t.about.languagesLabel}
+                            </span>
 
                             <div className="mt-3 flex flex-col gap-3">
                                 <div>
-                                    <h3 className="font-semibold text-foreground">Português</h3>
-                                    <p className="text-sm text-muted">Nativo</p>
+                                    <h3 className="font-semibold text-foreground">
+                                        {t.about.languagePT}
+                                    </h3>
+                                    <p className="text-sm text-muted">{t.about.native}</p>
                                 </div>
 
                                 <div>
-                                    <h3 className="font-semibold text-foreground">Inglês</h3>
+                                    <h3 className="font-semibold text-foreground">
+                                        {t.about.languageEN}
+                                    </h3>
                                     <p className="text-sm leading-relaxed text-muted">
-                                        Em desenvolvimento contínuo, com foco em comunicação
-                                        profissional.
+                                        {t.about.englishDescription}
                                     </p>
                                 </div>
                             </div>

@@ -15,9 +15,9 @@ export default function EnglishHome() {
                 <Hero language="en" />
                 <TechStack language="en" />
                 <ProjectsSection language="en" />
-                <ExperienceSection />
-                <AboutSection />
-                <ContactSection />
+                <ExperienceSection language="en" />
+                <AboutSection language="en" />
+                <ContactSection language="en" />
             </main>
             <Footer />
         </>

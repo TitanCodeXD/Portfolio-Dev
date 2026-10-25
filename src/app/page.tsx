@@ -17,9 +17,9 @@ export default function Home() {
                 <Hero language="pt" />
                 <TechStack language="pt" />
                 <ProjectsSection language="pt" />
-                <ExperienceSection />
-                <AboutSection />
-                <ContactSection />
+                <ExperienceSection language="pt" />
+                <AboutSection language="pt" />
+                <ContactSection language="pt" />
             </main>
             <Footer />
         </>
